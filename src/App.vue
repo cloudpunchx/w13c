@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+html{
+  background-image: url('../src/assets/geopic.png');
+  background-size: 150%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
