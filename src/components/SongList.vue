@@ -1,7 +1,6 @@
 <template>
     <div>
         <li @click="addToPlaylist">{{this.songTitle}} by {{this.songArtist}}</li>
-        <!-- <button @click="addToPlaylist">Add to Playlist</button> -->
     </div>
 </template>
 

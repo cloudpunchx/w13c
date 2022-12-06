@@ -3,17 +3,21 @@
         <h1>Top EDM 2022</h1>
         <h2>Create your own playlist, music updated weekly!</h2>
 
+        <div>
+            <p class="ptag1">EDM</p>
         <!-- Used Props to connect Song List component to Page Body -->
-        <SongList class="songContainer" v-for="(listSongs,index) in songs"
-        :key="index"
-        :songTitle="listSongs.title"
-        :songArtist="listSongs.artist"
-        :isSelected:="listSongs.isSelected"
-        @addSong="addToPlaylist"
-        />
+            <SongList class="songContainer" v-for="(listSongs,index) in songs"
+                :key="index"
+                :songTitle="listSongs.title"
+                :songArtist="listSongs.artist"
+                :isSelected:="listSongs.isSelected"
+                @addSong="addToPlaylist"
+            />
+        </div>
+
 
         <!-- P Tag only appears when Playlist array is 0 -->
-        <p v-if="playlist.length == 0">Select songs for your playlist!</p>
+        <p class="ptag2" v-if="playlist.length == 0">Select songs for your playlist!</p>
         <!-- Playlist only Shows when Playlist is 1 or more (still remains in DOM, not like v-if) -->
         <PlayList v-show="playlist.length >= 1" 
             v-for="songs in songs" 
@@ -117,6 +121,18 @@ import PlayList from '@/components/PlayList.vue';
 h1, h2, p{
     color: #FF36AB;
     -webkit-text-stroke: .5px white;
+}
+h2{
+    margin-bottom: 42px;
+}
+.ptag2{
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+.ptag1{
+    position: relative;
+    left: -23%;
 }
 .songContainer{
     color: #642CA9;
