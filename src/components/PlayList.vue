@@ -4,10 +4,8 @@
 <!-- flip for reverse -->
 
 <template>
-    <div class="myDiv">
-        <div class="playlistContainer">
-            <li>{{this.playlistSongTitle}}{{this.playlistSongArtist}}</li>
-        </div>
+    <div class="playlistContainer">
+        <li>{{this.playlistSongTitle}}{{this.playlistSongArtist}}</li>
     </div>
 </template>
 
@@ -18,27 +16,16 @@
             playlistSongTitle: String,
             playlistSongArtist: String,
         },
-        methods: {
-            addToPlaylist() {
-                this.$emit(`addSong`, this.playlistSongTitle, this.playlistSongArtist)
-            }
-        },
+        // methods: {
+
+        // },
     }
 </script>
 
 <style scoped>
-/* h2{
-    color: #FF36AB;
-    -webkit-text-stroke: .5px white;
-} */
-/* .myDiv{
-    /* position: absolute;
-    top: 26%;
-    right: 15%; */
-/* } */ 
 .playlistContainer{
     color: #642CA9;
-    font-size: .6em;
+    /* font-size: .6em; */
     /* changed cursor so user would actually know the h2 tags are clickable */
     cursor: pointer;
     background-color: white;
@@ -46,7 +33,10 @@
     border: 2px solid #F42272;
     border-radius: 5px;
     margin: 10px;
-    position: relative;
+    /* position: relative; */
     /* top: 50%; */
+}
+li{
+    list-style-type: none;
 }
 </style>

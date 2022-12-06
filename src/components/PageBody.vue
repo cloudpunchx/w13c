@@ -2,17 +2,32 @@
     <div >
         <h1>Top EDM 2022</h1>
         <h2>Create your own playlist, music updated weekly!</h2>
-        <div class="addToPlaylistDiv">
-            <img src="https://cdn-icons-png.flaticon.com/512/2995/2995101.png">
-            <p>Add to Playlist</p>
-        </div>
+
+        <!-- Used Props to connect Song List component to Page Body -->
         <SongList class="songContainer" v-for="(listSongs,index) in songs"
         :key="index"
         :songTitle="listSongs.title"
         :songArtist="listSongs.artist"
+        :isSelected:="listSongs.isSelected"
         @addSong="addToPlaylist"
         />
-        <PlayList/>
+
+        <!-- P Tag only appears when Playlist array is 0 -->
+        <p v-if="playlist.length == 0">Select songs for your playlist!</p>
+        <!-- Playlist only Shows when Playlist is 1 or more (still remains in DOM, not like v-if) -->
+        <PlayList v-show="playlist.length >= 1" 
+            v-for="songs in songs" 
+            :key="songs.id"
+            :playlistSongTitle="songs.songTitle"
+            :playlistSongArtist="songs.songArtist"
+            v-bind:playlist="playlist"
+            />
+        
+
+        <!-- <PlayList v-if="songs.isSelected"
+        :playlistSongTitle="songs.title"
+        :playlistSongArtist="songs.artist"
+        /> -->
         <!-- <PlayList v-for="(newPlaylist,i) in songs"
         :key="i"
         :playlistSongTitle="newPlaylist.title"
@@ -36,61 +51,70 @@ import PlayList from '@/components/PlayList.vue';
                 songs: [
                     {
                         title: "Alors on Danse",
-                        artist: "Stromae"
+                        artist: "Stromae",
+                        id: 100
                     },
                     {
                         title: "Scoop",
-                        artist: "Bingo Players & Peyruis"
+                        artist: "Bingo Players & Peyruis",
+                        id: 101
                     },
                     {
                         title: "Jam",
-                        artist: "Eddy Wata"
+                        artist: "Eddy Wata",
+                        id: 102
                     },
                     {
                         title: "Check",
-                        artist: "Hi-Lo & Will Clarke"
+                        artist: "Hi-Lo & Will Clarke",
+                        id: 103
                     },
                     {
                         title: "Low",
-                        artist: "Oliver Heldens, Tchami & Anabel Englund"
+                        artist: "Oliver Heldens, Tchami & Anabel Englund",
+                        id: 104
                     },
                     {
                         title: "Escape",
-                        artist: "Deadmau5 & Kaskade"
+                        artist: "Deadmau5 & Kaskade",
+                        id: 105
                     },
                     {
                         title: "Lokomotif",
-                        artist: "Hi-Lo"
+                        artist: "Hi-Lo",
+                        id: 106
                     },
                     {
                         title: "Deja Vu",
-                        artist: "Mike Cervello & Curbi"
+                        artist: "Mike Cervello & Curbi",
+                        id: 107
                     },
                     {
                         title: "Dance With Me",
-                        artist: "Kevin de Vries"
+                        artist: "Kevin de Vries",
+                        id: 108
                     },
                     {
                         title: "Cola",
-                        artist: "Camelphat & Elderbrook"
+                        artist: "Camelphat & Elderbrook",
+                        id: 109
                     },
                 ],
                 playlist: [],
-                // isSelected : "true",
             }
         },
         methods: {
             // function to add selected songs to a new array called Playlist
             addToPlaylist(item) {
                 this.playlist.push(item);
+                console.log('playlist');
             },
-
         },
     }
 </script>
 
 <style scoped>
-h1, h2{
+h1, h2, p{
     color: #FF36AB;
     -webkit-text-stroke: .5px white;
 }

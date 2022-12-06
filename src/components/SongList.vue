@@ -16,7 +16,7 @@ export default {
         methods: {
             addToPlaylist() {
                 this.$emit(`addSong`, this.songTitle, this.songArtist)
-            }
+            },
         },
     }
 </script>
