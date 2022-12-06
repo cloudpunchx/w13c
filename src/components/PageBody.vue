@@ -10,7 +10,6 @@
                 :key="index"
                 :songTitle="listSongs.title"
                 :songArtist="listSongs.artist"
-                :isSelected:="listSongs.isSelected"
                 @addSong="addToPlaylist"
             />
         </div>
